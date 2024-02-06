@@ -80,7 +80,7 @@
                 <div class="collapse" id="email">
                     <ul class="nav-second-level">
                         <li>
-                            <a href="email-inbox.html">Add Product</a>
+                            <a href="../admin/product.php">Add Product</a>
                         </li>
                         <li>
                             <a href="email-templates.html">All Product</a>
