@@ -83,7 +83,7 @@
                             <a href="../admin/product.php">Add Product</a>
                         </li>
                         <li>
-                            <a href="email-templates.html">All Product</a>
+                            <a href="../admin/all-product.php">All Product</a>
                         </li>
                     </ul>
                 </div>
