@@ -1,6 +1,6 @@
 <?php
 error_reporting(E_ALL);
-ini_set('display_errors',1);
+ini_set('display_errors', 1);
 
 include_once 'config.php';
 if (isset($_POST['login'])) {
@@ -11,7 +11,6 @@ if (isset($_POST['login'])) {
     if (mysqli_num_rows($run) > 0) {
         session_start();
         $_SESSION['email'] = $email;
-        // $_SESSION['name']=
         header('location:../index.php');
     } else {
         session_start();

@@ -63,7 +63,7 @@ if (isset($_SESSION['email'])) {
                                     <p class="text-muted font-14">
                                         Parsley is a javascript form validation library. It helps you provide your users with feedback on their form submission before sending it to your server.
                                     </p>
-                                    <form action="backend/product.php" method="post" class="parsley-examples">
+                                    <form action="backend/product.php" method="post" class="parsley-examples" enctype="multipart/form-data">
                                         <div class="mb-3">
                                             <label for="userName" class="form-label">Product Name<span class="text-danger">*</span></label>
                                             <input type="text" name="p_name" required placeholder="Enter Product name" class="form-control" id="userName" />
@@ -71,6 +71,10 @@ if (isset($_SESSION['email'])) {
                                         <div class="mb-3">
                                             <label for="emailAddress" class="form-label">Product Price<span class="text-danger">*</span></label>
                                             <input type="text" name="p_price" required placeholder="Enter Product Price" class="form-control" id="emailAddress" />
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="img" class="form-label">Produt Image<span class="text-danger"></span></label>
+                                            <input id="img" type="file" name="img" required class="form-control" />
                                         </div>
                                         <div class="mb-3">
                                             <label for="pass1" class="form-label">TAX<span class="text-danger">*</span></label>
