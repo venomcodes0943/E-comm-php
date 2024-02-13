@@ -80,6 +80,7 @@ if (isset($_SESSION['email'])) {
                                         <tr>
 
                                             <td><?php echo $i ?></td>
+                                            <td><img src="backend/upload/<?php echo $row['img'] ?>" class="img-fluid rounded" alt="image" style="width:90px; height:60px"></td>
                                             <td><?php echo $row['p_name'] ?></td>
                                             <td><?php echo $row['p_price'] ?></td>
                                             <td><?php echo $row['p_tax'] ?></td>
