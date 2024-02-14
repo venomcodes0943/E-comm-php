@@ -56,44 +56,25 @@ if (isset($_SESSION['email'])) {
                 <!-- Start Content-->
                 <div class="container-fluid">
                     <div class="row">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Id</th>
-                                    <th scope="col">Product Name</th>
-                                    <th scope="col">Product Price</th>
-                                    <th scope="col">Product Tax</th>
-                                    <th scope="col">Product Discription</th>
-                                    <th scope="col">Edit</th>
-                                    <th scope="col">Delete</th>
-                                </tr>
-                            </thead>
-                            <?php
-                            include_once 'backend/config.php';
-                            $sql = "SELECT * FROM `product`";
-                            $run = mysqli_query($mysqli, $sql);
-                            if ($run) {
-                                $i = 1;
-                                while ($row = mysqli_fetch_assoc($run)) {
-                            ?>
-                                    <tbody>
-                                        <tr>
-                                            <td><?php echo $i ?></td>
-                                            <td><img src="backend/upload/<?php echo $row['img'] ?>" class="img-fluid rounded" alt="image" style="width:90px; height:60px"></td>
-                                            <td><?php echo $row['p_name'] ?></td>
-                                            <td><?php echo $row['p_price'] ?></td>
-                                            <td><?php echo $row['p_tax'] ?></td>
-                                            <td><?php echo $row['p_dics'] ?></td>
-                                            <td><a href="update-product.php?uid=<?php echo $row['id'] ?>" class="btn btn-outline-primary">Edit</a></td>
-                                            <td><a href="backend/product.php?pid=<?php echo $row['id'] ?>" class="btn btn-outline-danger">Delete</a></td>
-                                        </tr>
-                                    </tbody>
-                            <?php
-                                    $i++;
-                                }
-                            }
-                            ?>
-                        </table>
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="header-title">Basic Form</h4>
+                                    <p class="text-muted font-14">
+                                        Parsley is a javascript form validation library. It helps you provide your users with feedback on their form submission before sending it to your server.
+                                    </p>
+                                    <form action="backend/category.php" method="post" class="parsley-examples" enctype="multipart/form-data">
+                                        <div class="mb-3">
+                                            <label for="userName" class="form-label">Category Name<span class="text-danger">*</span></label>
+                                            <input type="text" name="c_name" required placeholder="Enter Category name" class="form-control" id="userName" />
+                                        </div>
+                                        <div class="text-end">
+                                            <button class="btn btn-primary waves-effect waves-light" type="submit" name="enter_cate">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div> <!-- end card -->
+                        </div>
                     </div>
 
                 </div>
@@ -171,6 +152,7 @@ if (isset($_SESSION['email'])) {
                                 <input type="checkbox" class="form-check-input" name="layout-size" value="boxed" id="boxed" />
                                 <label class="form-check-label" for="boxed-check">Boxed</label>
                             </div>
+
                             <!-- Menu positions -->
                             <h6 class="fw-medium font-14 mt-4 mb-2 pb-1">Menus (Leftsidebar and Topbar) Positon</h6>
 

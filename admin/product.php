@@ -73,6 +73,21 @@ if (isset($_SESSION['email'])) {
                                             <input type="text" name="p_price" required placeholder="Enter Product Price" class="form-control" id="emailAddress" />
                                         </div>
                                         <div class="mb-3">
+                                            <!-- <label for="emailAddress" class="form-label">Product Category<span class="text-danger">*</span></label>
+                                            <input type="text" name="p_category" required placeholder="Enter Product Price" class="form-control" id="emailAddress" /> -->
+
+                                            <select class="form-select" aria-label="Default select example">
+                                                <?php
+                                                include_once 'backend/config.php';
+                                                $sql = "SELECT * FROM `categories`";
+                                                $run = mysqli_query($mysqli, $sql);
+                                                while ($row = mysqli_fetch_array($run)) {
+                                                ?>
+                                                    <option value="<?php echo $row['c_name']?>"><?php echo $row['c_name']?></option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
                                             <label for="img" class="form-label">Produt Image<span class="text-danger"></span></label>
                                             <input id="img" type="file" name="img" required class="form-control" />
                                         </div>

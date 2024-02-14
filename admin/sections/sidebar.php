@@ -1,94 +1,111 @@
 <div class="left-side-menu">
 
-<div class="h-100" data-simplebar>
+    <div class="h-100" data-simplebar>
 
-    <!-- User box -->
-    <div class="user-box text-center">
+        <!-- User box -->
+        <div class="user-box text-center">
 
-        <img src="assets/images/users/user-1.jpg" alt="user-img" title="Mat Helme" class="rounded-circle img-thumbnail avatar-md">
-        <div class="dropdown">
-            <a href="#" class="user-name dropdown-toggle h5 mt-2 mb-1 d-block" data-bs-toggle="dropdown" aria-expanded="false">Nowak Helme</a>
-            <div class="dropdown-menu user-pro-dropdown">
+            <img src="assets/images/users/user-1.jpg" alt="user-img" title="Mat Helme" class="rounded-circle img-thumbnail avatar-md">
+            <div class="dropdown">
+                <a href="#" class="user-name dropdown-toggle h5 mt-2 mb-1 d-block" data-bs-toggle="dropdown" aria-expanded="false">Nowak Helme</a>
+                <div class="dropdown-menu user-pro-dropdown">
 
-                <!-- item-->
-                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                    <i class="fe-user me-1"></i>
-                    <span>My Account</span>
-                </a>
+                    <!-- item-->
+                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                        <i class="fe-user me-1"></i>
+                        <span>My Account</span>
+                    </a>
 
-                <!-- item-->
-                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                    <i class="fe-settings me-1"></i>
-                    <span>Settings</span>
-                </a>
+                    <!-- item-->
+                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                        <i class="fe-settings me-1"></i>
+                        <span>Settings</span>
+                    </a>
 
-                <!-- item-->
-                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                    <i class="fe-lock me-1"></i>
-                    <span>Lock Screen</span>
-                </a>
+                    <!-- item-->
+                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                        <i class="fe-lock me-1"></i>
+                        <span>Lock Screen</span>
+                    </a>
 
-                <!-- item-->
-                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                    <i class="fe-log-out me-1"></i>
-                    <span>Logout</span>
-                </a>
+                    <!-- item-->
+                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                        <i class="fe-log-out me-1"></i>
+                        <span>Logout</span>
+                    </a>
 
+                </div>
             </div>
+
+            <p class="text-muted left-user-info">Admin Head</p>
+
+            <ul class="list-inline">
+                <li class="list-inline-item">
+                    <a href="#" class="text-muted left-user-info">
+                        <i class="mdi mdi-cog"></i>
+                    </a>
+                </li>
+
+                <li class="list-inline-item">
+                    <a href="#">
+                        <i class="mdi mdi-power"></i>
+                    </a>
+                </li>
+            </ul>
         </div>
 
-        <p class="text-muted left-user-info">Admin Head</p>
+        <!--- Sidemenu -->
+        <div id="sidebar-menu">
 
-        <ul class="list-inline">
-            <li class="list-inline-item">
-                <a href="#" class="text-muted left-user-info">
-                    <i class="mdi mdi-cog"></i>
-                </a>
-            </li>
+            <ul id="side-menu">
 
-            <li class="list-inline-item">
-                <a href="#">
-                    <i class="mdi mdi-power"></i>
-                </a>
-            </li>
-        </ul>
-    </div>
+                <li class="menu-title">Navigation</li>
 
-    <!--- Sidemenu -->
-    <div id="sidebar-menu">
+                <li>
+                    <a href="index.html">
+                        <i class="mdi mdi-view-dashboard-outline"></i>
+                        <span class="badge bg-success rounded-pill float-end">9+</span>
+                        <span> Dashboard </span>
+                    </a>
+                </li>
 
-        <ul id="side-menu">
 
-            <li class="menu-title">Navigation</li>
 
-            <li>
-                <a href="index.html">
-                    <i class="mdi mdi-view-dashboard-outline"></i>
-                    <span class="badge bg-success rounded-pill float-end">9+</span>
-                    <span> Dashboard </span>
-                </a>
-            </li>
-
-    
-
-            <li>
-                <a href="#email" data-bs-toggle="collapse">
-                    <i class="mdi mdi-email-outline"></i>
-                    <span> Products Module </span>
-                    <span class="menu-arrow"></span>
-                </a>
-                <div class="collapse" id="email">
-                    <ul class="nav-second-level">
-                        <li>
-                            <a href="../admin/product.php">Add Product</a>
-                        </li>
-                        <li>
-                            <a href="../admin/all-product.php">All Product</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-<!-- 
+                <li>
+                    <a href="#email" data-bs-toggle="collapse">
+                        <i class="mdi mdi-email-outline"></i>
+                        <span> Products Module </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="email">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="../admin/product.php">Add Product</a>
+                            </li>
+                            <li>
+                                <a href="../admin/all-product.php">All Product</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#cate" data-bs-toggle="collapse">
+                        <i class="mdi mdi-email-outline"></i>
+                        <span> Category Module </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="cate">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="../admin/category.php">Add Category</a>
+                            </li>
+                            <li>
+                                <a href="#">All Category</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <!-- 
             <li>
                 <a href="#sidebarTasks" data-bs-toggle="collapse">
                     <i class="mdi mdi-clipboard-outline"></i>
@@ -164,7 +181,7 @@
                 </div>
             </li> -->
 
-            <!-- <li>
+                <!-- <li>
                 <a href="#sidebarExpages" data-bs-toggle="collapse">
                     <i class="mdi mdi-file-multiple-outline"></i>
                     <span> Extra Pages </span>
@@ -519,14 +536,14 @@
                     </ul>
                 </div>
             </li> -->
-        </ul>
+            </ul>
+
+        </div>
+        <!-- End Sidebar -->
+
+        <div class="clearfix"></div>
 
     </div>
-    <!-- End Sidebar -->
-
-    <div class="clearfix"></div>
-
-</div>
-<!-- Sidebar -left -->
+    <!-- Sidebar -left -->
 
 </div>
