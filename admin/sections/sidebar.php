@@ -100,7 +100,7 @@
                                 <a href="../admin/category.php">Add Category</a>
                             </li>
                             <li>
-                                <a href="#">All Category</a>
+                                <a href="../admin/all-category.php">All Category</a>
                             </li>
                         </ul>
                     </div>

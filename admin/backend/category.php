@@ -11,3 +11,12 @@ if (isset($_POST['enter_cate'])) {
         echo "NOT INSERT CATEGORY";
     }
 }
+
+if (isset($_GET["cid"])) {
+    $cid = $_GET["cid"];
+    $sql = "DELETE FROM `categories` WHERE `c_id` = '$cid'";
+    $result = mysqli_query($mysqli, $sql);
+    if ($result) {
+        header("location:../all-category.php");
+    }
+}

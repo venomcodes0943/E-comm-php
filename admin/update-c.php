@@ -1,11 +1,23 @@
 <!DOCTYPE html>
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+include_once 'backend/config.php';
 session_start();
 if (isset($_SESSION['email'])) {
 } else {
     header('location:login.php');
 }
-
+if (isset($_POST['update-c'])) {
+    $cid = $_GET['cid'];
+    $c_name = $_POST['c_name'];
+    $sql = "UPDATE `categories` SET `c_name`='$c_name' WHERE `c_id` = '$cid'";
+    $run = mysqli_query($mysqli, $sql);
+    if ($run) {
+        header('location:all-category.php');
+    }
+}
 ?>
 <html lang="en">
 
@@ -52,6 +64,7 @@ if (isset($_SESSION['email'])) {
 
         <div class="content-page">
             <div class="content">
+
                 <!-- Start Content-->
                 <div class="container-fluid">
                     <div class="row">
@@ -62,45 +75,21 @@ if (isset($_SESSION['email'])) {
                                     <p class="text-muted font-14">
                                         Parsley is a javascript form validation library. It helps you provide your users with feedback on their form submission before sending it to your server.
                                     </p>
-                                    <form action="backend/product.php" method="post" class="parsley-examples" enctype="multipart/form-data">
+                                    <?php
+                                    $cid = $_GET['cid'];
+                                    $sql = "SELECT * FROM `categories` WHERE `c_id` = '$cid'";
+                                    $run = mysqli_query($mysqli, $sql);
+                                    if ($run) {
+                                        $row = mysqli_fetch_assoc($run);
+                                    }
+                                    ?>
+                                    <form method="post" class="parsley-examples">
                                         <div class="mb-3">
-                                            <label for="userName" class="form-label">Product Name<span class="text-danger">*</span></label>
-                                            <input type="text" name="p_name" required placeholder="Enter Product name" class="form-control" id="userName" />
+                                            <label for="userName" class="form-label">Category Name<span class="text-danger">*</span></label>
+                                            <input type="text" name="c_name" value="<?php echo $row['c_name'] ?>" required placeholder="Enter Product name" class="form-control" id="userName" />
                                         </div>
-                                        <div class="mb-3">
-                                            <label for="emailAddress" class="form-label">Product Price<span class="text-danger">*</span></label>
-                                            <input type="text" name="p_price" required placeholder="Enter Product Price" class="form-control" id="emailAddress" />
-                                        </div>
-                                        <div class="mb-3">
-                                            <!-- <label for="emailAddress" class="form-label">Product Category<span class="text-danger">*</span></label>
-                                            <input type="text" name="p_category" required placeholder="Enter Product Price" class="form-control" id="emailAddress" /> -->
-
-                                            <select class="form-select" aria-label="Default select example">
-                                                <?php
-                                                include_once 'backend/config.php';
-                                                $sql = "SELECT * FROM `categories`";
-                                                $run = mysqli_query($mysqli, $sql);
-                                                while ($row = mysqli_fetch_array($run)) {
-                                                ?>
-                                                    <option value="<?php echo $row['c_name'] ?>"><?php echo $row['c_name'] ?></option>
-                                                <?php } ?>
-                                            </select>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="img" class="form-label">Produt Image<span class="text-danger"></span></label>
-                                            <input id="img" type="file" name="img" required class="form-control" />
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="pass1" class="form-label">TAX<span class="text-danger">*</span></label>
-                                            <input id="pass1" type="text" name="p_tax" placeholder="Set Tax" required class="form-control" />
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="passWord2" class="form-label">Product Discription <span class="text-danger">*</span></label>
-                                            <textarea name="p_dics" id="" cols="30" rows="10" class="form-control"></textarea>
-                                        </div>
-
                                         <div class="text-end">
-                                            <button class="btn btn-primary waves-effect waves-light" type="submit" name="submit">Submit</button>
+                                            <button class="btn btn-primary waves-effect waves-light" type="submit" name="update-c">Submit</button>
                                         </div>
                                     </form>
                                 </div>

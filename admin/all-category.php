@@ -52,60 +52,41 @@ if (isset($_SESSION['email'])) {
 
         <div class="content-page">
             <div class="content">
+
                 <!-- Start Content-->
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-lg-12">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="header-title">Basic Form</h4>
-                                    <p class="text-muted font-14">
-                                        Parsley is a javascript form validation library. It helps you provide your users with feedback on their form submission before sending it to your server.
-                                    </p>
-                                    <form action="backend/product.php" method="post" class="parsley-examples" enctype="multipart/form-data">
-                                        <div class="mb-3">
-                                            <label for="userName" class="form-label">Product Name<span class="text-danger">*</span></label>
-                                            <input type="text" name="p_name" required placeholder="Enter Product name" class="form-control" id="userName" />
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="emailAddress" class="form-label">Product Price<span class="text-danger">*</span></label>
-                                            <input type="text" name="p_price" required placeholder="Enter Product Price" class="form-control" id="emailAddress" />
-                                        </div>
-                                        <div class="mb-3">
-                                            <!-- <label for="emailAddress" class="form-label">Product Category<span class="text-danger">*</span></label>
-                                            <input type="text" name="p_category" required placeholder="Enter Product Price" class="form-control" id="emailAddress" /> -->
-
-                                            <select class="form-select" aria-label="Default select example">
-                                                <?php
-                                                include_once 'backend/config.php';
-                                                $sql = "SELECT * FROM `categories`";
-                                                $run = mysqli_query($mysqli, $sql);
-                                                while ($row = mysqli_fetch_array($run)) {
-                                                ?>
-                                                    <option value="<?php echo $row['c_name'] ?>"><?php echo $row['c_name'] ?></option>
-                                                <?php } ?>
-                                            </select>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="img" class="form-label">Produt Image<span class="text-danger"></span></label>
-                                            <input id="img" type="file" name="img" required class="form-control" />
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="pass1" class="form-label">TAX<span class="text-danger">*</span></label>
-                                            <input id="pass1" type="text" name="p_tax" placeholder="Set Tax" required class="form-control" />
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="passWord2" class="form-label">Product Discription <span class="text-danger">*</span></label>
-                                            <textarea name="p_dics" id="" cols="30" rows="10" class="form-control"></textarea>
-                                        </div>
-
-                                        <div class="text-end">
-                                            <button class="btn btn-primary waves-effect waves-light" type="submit" name="submit">Submit</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div> <!-- end card -->
-                        </div>
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Category Name</th>
+                                    <th scope="col">Edit</th>
+                                    <th scope="col">Delete</th>
+                                </tr>
+                            </thead>
+                            <?php
+                            include_once 'backend/config.php';
+                            $sql = "SELECT * FROM `categories`";
+                            $run = mysqli_query($mysqli, $sql);
+                            if ($run) {
+                                $i = 1;
+                                while ($row = mysqli_fetch_assoc($run)) {
+                            ?>
+                                    <tbody>
+                                        <tr>
+                                            <td><?php echo $i ?></td>
+                                            <td><?php echo $row['c_name'] ?></td>
+                                            <td><a href="update-c.php?cid=<?php echo $row['c_id'] ?>" class="btn btn-outline-primary">Edit</a></td>
+                                            <td><a href="backend/category.php?cid=<?php echo $row['c_id'] ?>" class="btn btn-outline-danger">Delete</a></td>
+                                        </tr>
+                                    </tbody>
+                            <?php
+                                    $i++;
+                                }
+                            }
+                            ?>
+                        </table>
                     </div>
 
                 </div>
@@ -183,7 +164,6 @@ if (isset($_SESSION['email'])) {
                                 <input type="checkbox" class="form-check-input" name="layout-size" value="boxed" id="boxed" />
                                 <label class="form-check-label" for="boxed-check">Boxed</label>
                             </div>
-
                             <!-- Menu positions -->
                             <h6 class="fw-medium font-14 mt-4 mb-2 pb-1">Menus (Leftsidebar and Topbar) Positon</h6>
 
