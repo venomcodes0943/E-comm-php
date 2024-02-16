@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 session_start();
 if (isset($_SESSION['email'])) {
 } else {
@@ -60,17 +62,20 @@ if (isset($_SESSION['email'])) {
                             <thead>
                                 <tr>
                                     <th scope="col">Id</th>
+                                    <th scope="col">Product Image</th>
                                     <th scope="col">Product Name</th>
                                     <th scope="col">Product Price</th>
                                     <th scope="col">Product Tax</th>
                                     <th scope="col">Product Discription</th>
+                                    <th scope="col">Product Category</th>
                                     <th scope="col">Edit</th>
                                     <th scope="col">Delete</th>
                                 </tr>
                             </thead>
                             <?php
                             include_once 'backend/config.php';
-                            $sql = "SELECT * FROM `product`";
+                            // $cate_id = $_SESSION['cate_id'];
+                            $sql = "SELECT * FROM product JOIN categories ON product.c_id = categories.c_id";
                             $run = mysqli_query($mysqli, $sql);
                             if ($run) {
                                 $i = 1;
@@ -84,6 +89,7 @@ if (isset($_SESSION['email'])) {
                                             <td><?php echo $row['p_price'] ?></td>
                                             <td><?php echo $row['p_tax'] ?></td>
                                             <td><?php echo $row['p_dics'] ?></td>
+                                            <td><?php echo $row['c_name'] ?></td>
                                             <td><a href="update-product.php?uid=<?php echo $row['id'] ?>" class="btn btn-outline-primary">Edit</a></td>
                                             <td><a href="backend/product.php?pid=<?php echo $row['id'] ?>" class="btn btn-outline-danger">Delete</a></td>
                                         </tr>

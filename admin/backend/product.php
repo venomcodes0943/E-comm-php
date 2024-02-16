@@ -7,11 +7,14 @@ if (isset($_POST['submit'])) {
     $p_price = $_POST['p_price'];
     $p_tax = $_POST['p_tax'];
     $p_dics = $_POST['p_dics'];
+    $cate_id = $_POST['cate-id'];
+    // session_start();
+    // $_SESSION['cate_id'] = $cate_id;
     $folder = "./upload/";
     $img = $_FILES['img']['name'];
     $target = $folder . $img;
     move_uploaded_file($_FILES['img']['tmp_name'], $target);
-    $sql = "INSERT INTO `product`(`p_name`, `p_price`, `p_tax`, `p_dics`,`img`) VALUES ('$p_name','$p_price','$p_tax','$p_dics','$img')";
+    $sql = "INSERT INTO `product`(`p_name`, `p_price`, `p_tax`, `p_dics`,`img`,`c_id`) VALUES ('$p_name','$p_price','$p_tax','$p_dics','$img','$cate_id')";
     $run = mysqli_query($mysqli, $sql);
     if ($run) {
         header('location:http://localhost/project/admin/product.php');

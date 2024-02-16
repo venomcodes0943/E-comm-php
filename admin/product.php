@@ -75,14 +75,14 @@ if (isset($_SESSION['email'])) {
                                             <!-- <label for="emailAddress" class="form-label">Product Category<span class="text-danger">*</span></label>
                                             <input type="text" name="p_category" required placeholder="Enter Product Price" class="form-control" id="emailAddress" /> -->
 
-                                            <select class="form-select" aria-label="Default select example">
+                                            <select class="form-select" name="cate-id" aria-label="Default select example">
                                                 <?php
                                                 include_once 'backend/config.php';
                                                 $sql = "SELECT * FROM `categories`";
                                                 $run = mysqli_query($mysqli, $sql);
                                                 while ($row = mysqli_fetch_array($run)) {
                                                 ?>
-                                                    <option value="<?php echo $row['c_name'] ?>"><?php echo $row['c_name'] ?></option>
+                                                    <option value="<?php echo $row['c_id'] ?>"><?php echo $row['c_name'] ?></option>
                                                 <?php } ?>
                                             </select>
                                         </div>
